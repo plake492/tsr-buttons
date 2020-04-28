@@ -4,11 +4,7 @@
   position: relative;
   box-shadow: 1px 2px 6px #000000;
   color: hsl(0, 0%, 100%);
-  background-image: linear-gradient(
-    to bottom right,
-    hsl(283, 100%, 55%),
-    hsl(243, 86%, 50%)
-  );
+  background-image: linear-gradient(to bottom right, #ff1744, #050327);
   transition: 0.3s;
   z-index: 1;
 }
@@ -24,11 +20,8 @@
   left: 0;
   transition: 1.3s;
   box-shadow: 1px 2px 12px #000000;
-  background-image: linear-gradient(
-    to top left,
-    hsl(283, 100%, 55%),
-    hsl(243, 86%, 50%)
-  );
+  background-image: linear-gradient(to bottom right, #df1941, #04031b);
+
   z-index: -1;
   transition: opacity 0.5s linear;
   opacity: 0;
@@ -43,8 +36,89 @@
   color: hsl(282, 35%, 64%);
 }
 
-/* ================ ADD CrAzY EFFECTS ================  */
+.btn1 {
+  position: relative;
+  box-shadow: 1px 2px 6px #000000;
+  color: hsl(0, 0%, 100%);
+  background-image: linear-gradient(
+    to bottom right,
+    #ff1744,
+    hsl(348, 100%, 20%)
+  );
+  transition: 0.3s;
+  z-index: 1;
+}
+.btn1:hover {
+  cursor: pointer;
+}
+.btn1::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+  box-shadow: 1px 2px 12px #000000;
+  background-image: linear-gradient(
+    to bottom right,
+    #df1941,
+    hsl(347, 95%, 10%)
+  );
 
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+
+.btn1:hover::before {
+  opacity: 1;
+}
+
+.btn1:active {
+  transform: scale(0.993);
+  color: hsl(282, 35%, 64%);
+}
+
+.btn2 {
+  position: relative;
+  box-shadow: 1px 2px 6px #000000;
+  color: hsl(0, 0%, 100%);
+  background-color: #ff1744;
+
+  transition: 0.3s;
+  z-index: 1;
+}
+.btn2:hover {
+  cursor: pointer;
+}
+.btn2::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+  box-shadow: 1px 2px 12px #000000;
+  background-color: #c51538;
+
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+
+.btn2:hover::before {
+  opacity: 1;
+}
+
+.btn2:active {
+  transform: scale(0.993);
+  color: hsl(282, 35%, 64%);
+}
+
+/* ================ ADD CrAzY EFFECTS ================  */
+/* 
 .example_f {
   box-shadow: 1px 2px 6px #000000;
   font-family: Oswald;
@@ -83,4 +157,4 @@
 .example_f:hover span:after {
   opacity: 1;
   right: 0;
-}
+} */
