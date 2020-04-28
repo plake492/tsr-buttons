@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    /* ================ ADD HOVER AND CLIKC ANIMATION ================  */
+    .btn {
+      position: relative;
+      box-shadow: 1px 2px 6px #000000;
+      color: hsl(0, 0%, 100%);
+      background-image: linear-gradient(
+        to bottom right,
+        hsl(283, 100%, 55%),
+        hsl(243, 86%, 50%)
+      );
+      transition: 0.3s;
+      z-index: 1;
+    }
+    .btn:hover {
+      cursor: pointer;
+    }
+    .btn::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: 1.3s;
+      box-shadow: 1px 2px 12px #000000;
+      background-image: linear-gradient(
+        to top left,
+        hsl(283, 100%, 55%),
+        hsl(243, 86%, 50%)
+      );
+      z-index: -1;
+      transition: opacity 0.5s linear;
+      opacity: 0;
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    .btn:active {
+      transform: scale(0.993);
+      color: hsl(282, 35%, 64%);
+    }
+
+    /* ================ ADD HOVER AND CLIKC ANIMATION ================  */
+
+    /* ================ ADD CrAzY EFFECTS ================  */
+
+    .example_f {
+      box-shadow: 1px 2px 6px #000000;
+      font-family: Oswald;
+      border-radius: 4px;
+      background-image: linear-gradient(
+        to top left,
+        hsl(283, 100%, 55%),
+        hsl(243, 86%, 50%)
+      );
+      border: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 22px;
+      padding: 20px;
+      transition: all 0.4s;
+      margin: 5px;
+    }
+    .example_f span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.4s;
+      cursor: pointer;
+    }
+    .example_f span:after {
+      content: "\00bb";
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    .example_f:hover span {
+      padding-right: 25px;
+    }
+    .example_f:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+  </style>
+  <body>
+    <!-- Load Stripe.js on your website. -->
+    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+    <button
+      style="
+        background-color: #fff;
+        color: #000000;
+        border: 1px solid #201f1f;
+        padding: 22px 220px;
+        border-radius: 4px;
+        font-size: 3em;
+        font-family: Oswald;
+        box-shadow: 5px 5px 0px #ff1744;
+      "
+      id="checkout-button-sku_Gywmm5AouzJEzh"
+      role="link"
+    >
+      What you currently have on the website
+    </button>
+
+    <!--------------------------------- Alt button  ----------------------------------->
+    <div style="margin-bottom: 50px;"></div>
+    <!--------------------------------- Alt button  ----------------------------------->
+
+    <button
+      style="
+        background-image: linear-gradient(
+          to bottom right,
+          #bd17ff,
+          hsl(243, 86%, 50%)
+        );
+        color: #fff;
+        border: 1px solid #201f1f;
+        padding: 22px 220px;
+        border: 0;
+        border-radius: 4px;
+        font-size: 3em;
+        font-family: Oswald;
+        box-shadow: 1px 2px 6px #000000;
+      "
+      id="checkout-button-sku_Gywmm5AouzJEzh"
+      role="link"
+    >
+      Get Your Letter Campaign Here
+    </button>
+
+    <!--------------------------------- Alt button  ----------------------------------->
+    <div style="margin-bottom: 50px;"></div>
+    <!--------------------------------- Alt button  ----------------------------------->
+
+    <button
+      style="
+        border: 1px solid #201f1f;
+        padding: 22px 220px;
+        border: 0;
+        border-radius: 4px;
+        font-size: 3em;
+        font-family: Oswald;
+      "
+      id="checkout-button-sku_Gywmm5AouzJEzh"
+      role="link"
+      class="btn"
+    >
+      hover and click effect
+    </button>
+
+    <!--------------------------------- Alt button  ----------------------------------->
+    <div style="margin-bottom: 50px;"></div>
+    <!--------------------------------- Alt button  ----------------------------------->
+
+    <div class="button_cont">
+      <a
+        class="example_f"
+        href="#"
+        target="_blank"
+        rel="nofollow"
+        id="checkout-button-sku_Gywmm5AouzJEzh"
+        role="link"
+        ><span>Add Call To Action</span>
+      </a>
+    </div>
+    <script src="https://js.stripe.com/v3"></script>
+    <script>
+      (function () {
+        var stripe = Stripe("pk_live_76o7Q17lfv1eFl5I74ajlWi5003dMoTD0q");
+
+        var checkoutButton = document.getElementById(
+          "checkout-button-sku_Gywmm5AouzJEzh"
+        );
+        checkoutButton.addEventListener("click", function () {
+          // When the customer clicks on the button, redirect
+          // them to Checkout.
+          stripe
+            .redirectToCheckout({
+              items: [{ sku: "sku_Gywmm5AouzJEzh", quantity: 1 }],
+
+              // Do not rely on the redirect to the successUrl for fulfilling
+              // purchases, customers may not always reach the success_url after
+              // a successful payment.
+              // Instead use one of the strategies described in
+              // https://stripe.com/docs/payments/checkout/fulfillment
+              successUrl:
+                window.location.protocol +
+                "//www.thesalesrebellion.com/success",
+              cancelUrl:
+                window.location.protocol +
+                "//www.thesalesrebellion.com/canceled",
+            })
+            .then(function (result) {
+              if (result.error) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer.
+                var displayError = document.getElementById("error-message");
+                displayError.textContent = result.error.message;
+              }
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
