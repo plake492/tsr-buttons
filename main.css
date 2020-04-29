@@ -18,7 +18,7 @@
   animation-name: rotate;
   animation-timing-function: linear;
 }
-.btn::before {
+/* .btn::before {
   position: absolute;
   content: "";
   top: 0;
@@ -32,11 +32,11 @@
   z-index: -1;
   transition: opacity 0.5s linear;
   opacity: 0;
-}
+} */
 
-.btn:hover::before {
+/* .btn:hover::before {
   opacity: 1;
-}
+} */
 
 .btn:active {
   transition: 0.1s;
@@ -67,7 +67,7 @@
 }
 
 .bounce:hover {
-  animation-duration: 0.2s;
+  animation-duration: 0.5s;
   animation-iteration-count: 3;
   animation-name: bounce;
   animation-timing-function: linear;
